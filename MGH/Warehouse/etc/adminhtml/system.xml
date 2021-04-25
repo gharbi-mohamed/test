@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="warehouse" translate="label" sortOrder="999">
+			<label>warehouse</label>
+		</tab>
+		<section id="warehouse" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<label>warehouse</label>
+			<tab>warehouse</tab>
+			<resource>MGH_Warehouse::config_mgh_warehouse</resource>
+			<group id="api" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>api</label>
+				<field id="api_url" type="text" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>api_url</label>
+					<comment/>
+				</field>
+				<field id="api_key" type="text" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>api_key</label>
+					<comment/>
+				</field>
+				<field id="api_secret" type="obscure" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>api_secret</label>
+					<comment/>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+					<config_path>warehouse/api/api_secret</config_path>
+				</field>
+			</group>
+			<group id="export" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>export</label>
+				<field id="live_notification" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>live_notification</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="order_export_statuses" type="multiselect" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>order_export_statuses</label>
+					<comment/>
+					<source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>
